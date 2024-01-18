@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Local Time</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #time {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="time">Loading time...</div>
+
+    <script>
+        function updateTime() {
+            var now = new Date();
+            var hours = String(now.getHours()).padStart(2, '0');
+            var minutes = String(now.getMinutes()).padStart(2, '0');
+            var seconds = String(now.getSeconds()).padStart(2, '0');
+            var formattedTime = hours + ':' + minutes + ':' + seconds;
+
+            document.getElementById('time').textContent = formattedTime;
+        }
+
+        // Update the time every second
+        setInterval(updateTime, 1000);
+
+        // Initialize
+        updateTime();
+    </script>
+</body>
+</html>
